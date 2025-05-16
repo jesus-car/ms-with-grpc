@@ -1,0 +1,33 @@
+server:
+    port: 0
+
+spring:
+    application:
+        name: product-ms
+
+    datasource:
+        url: jdbc:mysql://localhost:3306/product_ms
+        username: root
+        password: Asdacmdk27@
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+
+grpc:
+  server:
+      port: 9090
+
+eureka:
+    instance:
+        prefer-ip-address: true
+    client:
+        registerWithEureka: true
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka
+        fetch-registry: false

@@ -1,0 +1,4 @@
+package com.msgrpc.productms;
+
+public class ProductService {
+}

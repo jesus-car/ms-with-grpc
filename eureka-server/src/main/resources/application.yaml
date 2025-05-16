@@ -1,0 +1,24 @@
+server:
+    port: 8761
+
+spring:
+    application:
+        name: eureka-server
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
+        fetch-registry: false
+        register-with-eureka: false
+    instance:
+        hostname: localhost
+        prefer-ip-address: false
+        status-page-url-path: /actuator/info
+        secure-health-check-url: /actuator/health
+        lease-expiration-duration-in-seconds: 30
+        lease-renewal-interval-in-seconds: 30
+    server:
+        wait-time-in-ms-when-sync-empty: 0
+        # Para que el cliente no sea dado de baja si no esta enviando el hearth bit
+        enable-self-preservation: false

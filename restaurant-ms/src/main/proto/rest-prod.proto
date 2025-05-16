@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.msgrpc.restaurantms;
+
+option java_multiple_files = true;
+option java_package = "com.msgrpc.restaurantms";
+option java_outer_classname = "RestProdProto";
+
+service ProductService {
+  rpc getProductsByRestaurant (ProductRequest) returns (stream ProductResponse);
+}
+
+message ProductRequest {
+  int64 restaurantId = 1;
+}
+
+message ProductResponse {
+  int64 productId = 1;
+  string name = 2;
+  string category = 3;
+  string description = 4;
+  double price = 5;
+  int32 stock = 6;
+}

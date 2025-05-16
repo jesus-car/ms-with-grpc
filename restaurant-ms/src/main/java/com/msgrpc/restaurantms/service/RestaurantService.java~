@@ -1,0 +1,17 @@
+package com.msgrpc.restaurantms.service;
+
+import com.msgrpc.restaurantms.ProductServiceGrpc;
+import com.msgrpc.restaurantms.model.ProductDTO;
+import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+
+@Service
+public class RestaurantService {
+
+    @GrpcClient("product-ms")
+    private ProductServiceGrpc.ProductServiceStub productService;
+
+    public ProductDTO getProducts(Long restaurantId, SseEmitter emitter) {
+    }
+}
