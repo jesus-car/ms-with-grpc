@@ -1,0 +1,36 @@
+server:
+    port: 8080
+
+spring:
+    application:
+        name: app-gateway
+
+    cloud:
+        gateway:
+            routes:
+                - id: product-ms
+                  uri: lb://product-ms
+                  predicates:
+                    - Path=/product/**
+
+                - id: restaurant-ms
+                  uri: lb://restaurant-ms
+                  predicates:
+                    - Path=/restaurant/**
+
+                - id: eureka-server
+                  uri: http://localhost:8761
+                  predicates:
+                    - Path=/eureka/web
+                  filters:
+                    - SetPath=/
+
+                - id: eureka-server-static
+                  uri: http://localhost:8761
+                  predicates:
+                    - Path=/eureka/**
+
+eureka:
+    client:
+        service-url:
+          defaultZone: http://localhost:8761/eureka

@@ -22,6 +22,7 @@
         <module>eureka-server</module>
         <module>restaurant-ms</module>
         <module>product-ms</module>
+        <module>app-gateway</module>
     </modules>
 
     <dependencies>
